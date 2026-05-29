@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DI Water Loop — PEX-A Repipe Materials List</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2330;
+    --border: #30363d;
+    --accent: #00b4d8;
+    --accent2: #f77f00;
+    --warn: #e63946;
+    --ok: #2ec4b6;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+  }
+
+  header {
+    border-left: 4px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 32px;
+  }
+
+  header .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  header p {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .warn-box {
+    background: rgba(230,57,70,0.1);
+    border: 1px solid var(--warn);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .warn-box .icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .warn-box .content {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .warn-box strong {
+    color: var(--warn);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+
+  section {
+    margin-bottom: 28px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    background: rgba(0,180,216,0.1);
+    border: 1px solid rgba(0,180,216,0.3);
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+
+  thead tr {
+    background: var(--surface2);
+  }
+
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:hover {
+    background: var(--surface2);
+  }
+
+  tbody td {
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+
+  .part-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .item-name {
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 13px;
+  }
+
+  .item-note {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .brand {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  .qty {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  .badge-critical {
+    background: rgba(230,57,70,0.15);
+    color: var(--warn);
+    border: 1px solid rgba(230,57,70,0.4);
+  }
+
+  .badge-di {
+    background: rgba(0,180,216,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(0,180,216,0.3);
+  }
+
+  .badge-ok {
+    background: rgba(46,196,182,0.12);
+    color: var(--ok);
+    border: 1px solid rgba(46,196,182,0.3);
+  }
+
+  .notes-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-top: 28px;
+  }
+
+  .notes-box h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .notes-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .notes-box li {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .notes-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 11px;
+  }
+
+  .notes-box li strong {
+    color: var(--text);
+  }
+
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="label">Scope Document · Medical Facility</div>
+  <h1>DI Water Loop — PEX-A Repipe<br>Full Materials List</h1>
+  <p>Inspection-compliant rebuild · Expansion PEX-A system · Non-metallic DI side</p>
+</header>
+
+<div class="warn-box">
+  <div class="icon">⚠️</div>
+  <div class="content">
+    <strong>Primary Inspection Failure — Replace Immediately</strong>
+    SharkBite brass ball valve on DI line is non-compliant. Brass leaches copper/zinc into deionized water, contaminating the loop and violating lab-grade DI standards. All DI-side components must be non-metallic.
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">DI-Side Isolation Valve — Replace SharkBite</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">TB1-375-01N</td>
+        <td>
+          <div class="item-name">PVDF True Union Ball Valve ½" <span class="badge badge-critical">CRITICAL</span></div>
+          <div class="item-note">Hayward TBH Series — PVDF body/ball, fully DI-rated, no metal wetted parts</div>
+        </td>
+        <td class="brand">Hayward</td>
+        <td class="qty">1</td>
+      </tr>
+      <tr>
+        <td class="part-num">BV10PVDF5</td>
+        <td>
+          <div class="item-name">PVDF Ball Valve ½" — Alt Option <span class="badge badge-di">DI RATED</span></div>
+          <div class="item-note">Asahi/America Type-21 — PVDF body, PTFE seats, socket or threaded ends</div>
+        </td>
+        <td class="brand">Asahi/America</td>
+        <td class="qty">1</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 2 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">PEX-A Tubing — Expansion System</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">F1960500</td>
+        <td>
+          <div class="item-name">AquaPEX Tubing ½" x 10ft <span class="badge badge-ok">PEX-A</span></div>
+          <div class="item-note">Uponor/Wirsbo — ASTM F876/F877, expansion-compatible, NSF 61 certified</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">As needed</td>
+      </tr>
+      <tr>
+        <td class="part-num">F1960750</td>
+        <td>
+          <div class="item-name">AquaPEX Tubing ¾" x 10ft <span class="badge badge-ok">PEX-A</span></div>
+          <div class="item-note">If existing supply line is ¾" — match existing diameter at supply</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">As needed</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 3 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">PEX-A Expansion Fittings — Brass (Potable Side Only)</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">LF4507500</td>
+        <td>
+          <div class="item-name">PEX-A Expansion Elbow ½" 90°</div>
+          <div class="item-note">Uponor ProPEX LF brass — potable side only, not DI loop</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">2–4</td>
+      </tr>
+      <tr>
+        <td class="part-num">LF4517500</td>
+        <td>
+          <div class="item-name">PEX-A Expansion Coupling ½"</div>
+          <div class="item-note">Uponor ProPEX LF brass straight coupling</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">2–4</td>
+      </tr>
+      <tr>
+        <td class="part-num">LF4527500</td>
+        <td>
+          <div class="item-name">PEX-A Expansion Tee ½"</div>
+          <div class="item-note">Uponor ProPEX LF brass tee — for branching potable supply</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">1–2</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 4 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">PEX-A Expansion Rings</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">Q4500500</td>
+        <td>
+          <div class="item-name">ProPEX Expansion Ring ½" (25-pack)</div>
+          <div class="item-note">ASTM F1960 expansion rings for PEX-A — required for every fitting connection</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">1 pack</td>
+      </tr>
+      <tr>
+        <td class="part-num">Q4500750</td>
+        <td>
+          <div class="item-name">ProPEX Expansion Ring ¾" (25-pack)</div>
+          <div class="item-note">Only if ¾" tubing is used on supply side</div>
+        </td>
+        <td class="brand">Uponor</td>
+        <td class="qty">1 pack</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 5 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Dual-Outlet Lab Faucet — Point of Use</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">B-0892</td>
+        <td>
+          <div class="item-name">Dual Outlet Lab Faucet — Deck Mount <span class="badge badge-ok">RECOMMENDED</span></div>
+          <div class="item-note">T&S Brass — gooseneck + serrated hose outlet, single hole deck mount, ½" IPS inlets</div>
+        </td>
+        <td class="brand">T&S Brass</td>
+        <td class="qty">1</td>
+      </tr>
+      <tr>
+        <td class="part-num">748-GN2ACP822</td>
+        <td>
+          <div class="item-name">Lab Faucet with Side Hose Outlet</div>
+          <div class="item-note">Chicago Faucets — gooseneck with integral side outlet, deck mount, lead-free</div>
+        </td>
+        <td class="brand">Chicago Faucets</td>
+        <td class="qty">1</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 6 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-title">Backflow Prevention</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">9D-M2</td>
+        <td>
+          <div class="item-name">Reduced Pressure Zone Backflow Preventer ½" <span class="badge badge-critical">REQUIRED</span></div>
+          <div class="item-note">Watts 009-M2 or equivalent — required at DI supply tap connection per code</div>
+        </td>
+        <td class="brand">Watts</td>
+        <td class="qty">1</td>
+      </tr>
+      <tr>
+        <td class="part-num">LF8-M3-QT</td>
+        <td>
+          <div class="item-name">Dual Check Backflow Preventer ½" — Alt</div>
+          <div class="item-note">Watts LF8 — if RPZ not required by local code, confirm with inspector</div>
+        </td>
+        <td class="brand">Watts</td>
+        <td class="qty">1</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 7 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <span class="section-title">Pipe Supports & Hangers</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">PHC-50</td>
+        <td>
+          <div class="item-name">Plastic Pipe Hanger Clamp ½" (50-pack)</div>
+          <div class="item-note">Non-metallic — every 32" horizontal run, every 4ft vertical per IPC</div>
+        </td>
+        <td class="brand">Oatey / Generic</td>
+        <td class="qty">1 pack</td>
+      </tr>
+      <tr>
+        <td class="part-num">—</td>
+        <td>
+          <div class="item-name">Insulation Sleeve ½" (if required)</div>
+          <div class="item-note">Foam pipe insulation — prevents condensation on DI cold line near drain area</div>
+        </td>
+        <td class="brand">Armaflex / Generic</td>
+        <td class="qty">As needed</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 8 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <span class="section-title">Labeling — Code Required</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Item</th>
+        <th>Brand</th>
+        <th>Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="part-num">PSPVC-1/2</td>
+        <td>
+          <div class="item-name">DI Water Pipe Label Tape ½" <span class="badge badge-critical">REQUIRED</span></div>
+          <div class="item-note">"DI WATER" identification labels every 10ft and at all valves, tees, and changes of direction</div>
+        </td>
+        <td class="brand">Brady / Seton</td>
+        <td class="qty">1 roll</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="notes-box">
+  <h3>⚙ Field Notes & Verify Before Order</h3>
+  <ul>
+    <li><strong>Verify part numbers with distributor</strong> — T&S and Chicago Faucets update catalog numbers with trim/finish options. Confirm at Ferguson, Hajoca, or Grainger before ordering.</li>
+    <li><strong>No brass on DI side</strong> — Uponor ProPEX brass fittings are for potable supply only. Transition to PVDF piping before the DI loop begins.</li>
+    <li><strong>Expansion tool required</strong> — Uponor PEX-A expansion system requires an F1960 expansion tool (rental available at most supply houses).</li>
+    <li><strong>RPZ vs dual-check</strong> — Confirm backflow preventer type required with your local AHJ/inspector before rough-in.</li>
+    <li><strong>Pull permit before work</strong> — This is a medical facility. Work without a permit on DI lines will result in re-inspection failure regardless of materials used.</li>
+    <li><strong>Pressure test before closing</strong> — 100 PSI static hold for 2 hours on PEX-A system before covering or concealing any lines.</li>
+  </ul>
+</div>
+
+<footer>
+  SCOPE: DI Water Loop Repipe · PEX-A Expansion System · Medical/Lab Grade · Rev 1.0
+</footer>
+
+</body>
+</html>
