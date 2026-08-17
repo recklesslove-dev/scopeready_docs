@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>ScopeReady — Insomnia Cookies Anaheim #456 | Plumbing Tier 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#2d3c4a;--accent:#1a3a5c;--bg:#f0ede8;--surface:#fff;--ok:#2a5e38;--warn:#704200;--hi:#7a1a1a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:#1e1c1a;max-width:480px;margin:0 auto;line-height:1.5;font-size:15px;padding-bottom:90px}
+.topbar{background:var(--navy);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;color:white}
+.topbar-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:22px;letter-spacing:3px;text-transform:uppercase}
+.topbar-trade{font-size:13px;font-weight:500;opacity:.75;letter-spacing:1px}
+.header{background:var(--navy);padding:20px 20px 16px;position:relative;overflow:hidden;color:white;text-align:center}
+.header::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.06)0%,rgba(0,0,0,.12)100%)}
+.header-inner{position:relative;z-index:1}
+.header-logo{margin-bottom:14px;display:flex;justify-content:center}
+.footer-logo{display:flex;justify-content:center;margin-bottom:6px}
+.header-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:34px;letter-spacing:3px;line-height:1;text-transform:uppercase;margin-bottom:4px}
+.header-subtitle{font-size:12px;opacity:.8;letter-spacing:2px;text-transform:uppercase}
+.header-addr{font-size:13px;opacity:.75;margin-top:8px}
+.content{padding:16px 14px}
+.card{background:var(--surface);border-radius:12px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+.card-header{background:var(--accent);color:white;padding:12px 16px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:17px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.card-body{padding:14px 16px}
+.snap{margin-bottom:10px;font-size:14px}
+.snap-label{font-weight:600;color:#555;display:inline-block;min-width:110px}
+.qa-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+.qa-row:last-child{border-bottom:none}
+.qa-label{font-size:14px;color:#333}
+.pill{padding:4px 14px;border-radius:9999px;font-weight:700;font-size:13px;white-space:nowrap}
+.yes{background:#eaf2ec;color:var(--ok)}
+.no{background:#f4f4f4;color:#666}
+.fix-row{padding:10px 0;border-bottom:1px solid #eee;font-size:14px}
+.fix-row:last-child{border-bottom:none}
+.fix-tag{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:15px;letter-spacing:1px;color:var(--accent);margin-bottom:2px}
+.fix-mfr{font-size:13px;color:#444;margin-bottom:2px}
+.fix-ri{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ok);margin-top:2px}
+.fix-note{font-size:12px;color:#888;margin-top:2px;font-style:italic}
+.mat-block{margin-bottom:16px}
+.mat-block:last-child{margin-bottom:0}
+.mat-header{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:white;background:var(--navy);padding:7px 12px;border-radius:6px;margin-bottom:8px}
+.mat-row{display:grid;grid-template-columns:60px 1fr 70px;gap:6px;align-items:baseline;padding:7px 0;border-bottom:1px solid #eee;font-size:14px}
+.mat-row:last-child{border-bottom:none}
+.mat-size{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--accent);font-size:13px}
+.mat-desc{color:#333;font-size:13px}
+.mat-lf{font-family:'IBM Plex Mono',monospace;font-weight:700;color:var(--ok);font-size:14px;text-align:right}
+.mat-total-row{display:grid;grid-template-columns:1fr 70px;gap:6px;border-top:2px solid var(--accent);margin-top:6px;padding-top:8px}
+.mat-total-label{font-weight:700;font-size:13px;color:var(--accent)}
+.mat-total-lf{font-family:'IBM Plex Mono',monospace;font-weight:800;color:var(--accent);font-size:14px;text-align:right}
+.mat-note{font-size:11px;color:#888;font-style:italic;margin-top:4px}
+.scope-item{padding:8px 0;border-bottom:1px solid #eee;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+.scope-item:last-child{border-bottom:none}
+.scope-icon{font-size:16px;flex-shrink:0}
+.red-flag{background:#fdf0f0;border-left:4px solid var(--hi);padding:12px;margin-bottom:10px;border-radius:0 8px 8px 0;font-size:14px}
+.red-flag:last-child{margin-bottom:0}
+.red-flag strong{display:block;color:var(--hi);margin-bottom:2px;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.verdict-card{padding:20px 16px;text-align:center;border-radius:12px;color:white;margin-bottom:12px;background:var(--warn)}
+.verdict-label{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:13px;letter-spacing:3px;text-transform:uppercase;opacity:.85;margin-bottom:6px}
+.verdict-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:32px;letter-spacing:2px;text-transform:uppercase;line-height:1;margin-bottom:10px}
+.verdict-body{font-size:13px;opacity:.9;line-height:1.5}
+.footer{text-align:center;padding:20px 16px;font-size:11px;color:#777;line-height:1.4}
+.fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:452px;background:var(--navy);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:18px;letter-spacing:2px;padding:16px;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.2);cursor:pointer;border:none}
+.section-sub{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:4px;margin:14px 0 10px}
+.gas-excluded{background:#fdf0f0;border-left:4px solid var(--hi);padding:10px 12px;border-radius:0 8px 8px 0;font-size:14px;color:var(--hi);font-weight:600;margin-top:8px}
+/* FIXTURE COUNT SUMMARY */
+.fxcount-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.fxcount-item{background:#f7f5f2;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;border:1px solid #e8e4de}
+.fxcount-badge{background:var(--navy);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;min-width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:0}
+.fxcount-info{}
+.fxcount-code{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:13px;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;line-height:1}
+.fxcount-name{font-size:11px;color:#666;line-height:1.3;margin-top:2px}
+.fxcount-note{font-size:10px;color:#999;font-style:italic;margin-top:1px}
+.fxcount-total{background:var(--accent);border-radius:8px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;margin-top:4px;color:white}
+.fxcount-total-label{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:14px;letter-spacing:2px;text-transform:uppercase}
+.fxcount-total-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;letter-spacing:1px}
+.fxcount-divider{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin:8px 0 6px;padding-top:2px}
+
+@media print{
+.topbar,.fab{display:none!important}
+body{padding:0;max-width:none;background:white;color:#000}
+.header{background:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+.card-header{background:#000!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mat-header{background:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.yes{background:#fff!important;color:#000!important;border:2px solid #000;font-weight:800}
+.no{background:#fff!important;color:#555!important;border:1px solid #999}
+.pill{border-radius:4px}
+.red-flag,.gas-excluded{background:#fff!important;border-left:4px solid #000;color:#000}
+.red-flag strong{color:#000!important}
+.verdict-card{background:#000!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.fix-ri,.mat-size,.mat-lf,.mat-total-lf{color:#000!important}
+.section-sub,.mat-total-label{color:#000!important;border-color:#000!important}
+.mat-total-row{border-color:#000!important}
+}
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div class="topbar-logo">SCOPEREADY</div>
+    <div class="topbar-trade">PLUMBING &bull; TIER 2</div>
+  </div>
+  <img src="data:image/jpeg;base64,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" alt="ScopeReady" style="height:38px;width:auto;border-radius:4px;">
+</div>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <img src="data:image/jpeg;base64,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" alt="ScopeReady" style="height:80px;width:auto;border-radius:6px;">
+    </div>
+    <div class="header-title">INSOMNIA COOKIES</div>
+    <div class="header-subtitle">ANAHEIM #456 &bull; TENANT INFILL &bull; TIER 2</div>
+    <div class="header-addr">321 W. Katella Ave, Suite 140 &bull; Anaheim, CA 92802 &bull; 900 SF</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 1. PROJECT SNAPSHOT -->
+
+  <div class="card">
+    <div class="card-header">📍 PROJECT SNAPSHOT</div>
+    <div class="card-body">
+      <div class="snap"><span class="snap-label">Project:</span> Insomnia Cookies Anaheim #456</div>
+      <div class="snap"><span class="snap-label">Address:</span> 321 W. Katella Ave, Suite 140, Anaheim, CA 92802</div>
+      <div class="snap"><span class="snap-label">Type:</span> Cookie Shop — Tenant Infill, 900 SF</div>
+      <div class="snap"><span class="snap-label">Occupancy:</span> B-Business (Food Take-Out)</div>
+      <div class="snap"><span class="snap-label">Code:</span> 2025 California Plumbing Code + Anaheim Amendments</div>
+      <div class="snap"><span class="snap-label">Key Sheets:</span> P100 DWV &bull; P101 Water &bull; P200 Schedules &bull; P300 Details &bull; EQ100</div>
+      <div class="snap"><span class="snap-label">Drawing Date:</span> 01/13/26 &bull; Permit Issue</div>
+      <div class="snap"><span class="snap-label">Gas:</span> NONE — All electric confirmed on drawings</div>
+      <div class="snap"><span class="snap-label">Grease Trap:</span> Existing shared interceptors on site. New above-ground unit required in BOH.</div>
+      <div class="snap"><span class="snap-label">Existing:</span> 1" CW metered service &bull; 4" sanitary main &bull; Mop sink to remain</div>
+    </div>
+  </div>
+
+  <!-- 2. QUICK ANSWERS -->
+
+  <div class="card">
+    <div class="card-header">⚡ QUICK ANSWERS</div>
+    <div class="card-body">
+      <div class="qa-row"><div class="qa-label">Gas scope</div><span class="pill no">NO — All Electric</span></div>
+      <div class="qa-row"><div class="qa-label">Below slab work</div><span class="pill yes">YES</span></div>
+      <div class="qa-row"><div class="qa-label">ADA fixtures required</div><span class="pill yes">YES</span></div>
+      <div class="qa-row"><div class="qa-label">Grease interceptor — new</div><span class="pill yes">YES — Above Ground</span></div>
+      <div class="qa-row"><div class="qa-label">Water heater in scope</div><span class="pill yes">YES — GC Furnish</span></div>
+      <div class="qa-row"><div class="qa-label">Recirc pump required</div><span class="pill yes">YES</span></div>
+      <div class="qa-row"><div class="qa-label">Backflow preventer</div><span class="pill yes">YES — Zurn 375XL RP</span></div>
+      <div class="qa-row"><div class="qa-label">Trap primer at FD</div><span class="pill yes">YES — Access Panel Req'd</span></div>
+      <div class="qa-row"><div class="qa-label">Mop sink</div><span class="pill no">EXISTING — New Faucet Only</span></div>
+      <div class="qa-row"><div class="qa-label">WC &amp; LAV</div><span class="pill yes">REPLACE — Reconnect Existing R/I</span></div>
+    </div>
+  </div>
+
+  <!-- 3. FIXTURE COUNT SUMMARY -->
+
+  <div class="card">
+    <div class="card-header">🔢 FIXTURE COUNT SUMMARY</div>
+    <div class="card-body">
+
+```
+  <div class="fxcount-divider">— Restroom —</div>
+  <div class="fxcount-grid">
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">WC</div>
+        <div class="fxcount-name">Water Closet (ADA)</div>
+        <div class="fxcount-note">Replace existing</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">LAV</div>
+        <div class="fxcount-name">Lavatory Sink (ADA)</div>
+        <div class="fxcount-note">Replace existing</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">FD</div>
+        <div class="fxcount-name">Floor Drain</div>
+        <div class="fxcount-note">Trap primer required</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fxcount-divider">— BOH / Kitchen —</div>
+  <div class="fxcount-grid">
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">S3</div>
+        <div class="fxcount-name">3-Compartment Sink</div>
+        <div class="fxcount-note">+ pre-rinse unit</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">2</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">HS</div>
+        <div class="fxcount-name">Hand Sinks</div>
+        <div class="fxcount-note">Mixing valve at each</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">MS</div>
+        <div class="fxcount-name">Mop Sink</div>
+        <div class="fxcount-note">Existing — new faucet only</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">GI</div>
+        <div class="fxcount-name">Grease Interceptor</div>
+        <div class="fxcount-note">GC furnish — confirm in writing</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fxcount-divider">— Mechanical —</div>
+  <div class="fxcount-grid">
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">WH</div>
+        <div class="fxcount-name">Water Heater</div>
+        <div class="fxcount-note">GC furnish — 50 gal electric</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">RP</div>
+        <div class="fxcount-name">Recirc Pump</div>
+        <div class="fxcount-note">With aquastat</div>
+      </div>
+    </div>
+
+    <div class="fxcount-item">
+      <div class="fxcount-badge">1</div>
+      <div class="fxcount-info">
+        <div class="fxcount-code">BFP</div>
+        <div class="fxcount-name">Backflow Preventer</div>
+        <div class="fxcount-note">Zurn 375XL RP</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fxcount-total">
+    <div class="fxcount-total-label">Total Fixture &amp; Equipment Count</div>
+    <div class="fxcount-total-num">11</div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 4. FIXTURE SCHEDULE -->
+
+  <div class="card">
+    <div class="card-header">🔧 FIXTURE SCHEDULE — FULL DETAIL</div>
+    <div class="card-body">
+
+```
+  <div class="section-sub">Restroom</div>
+
+  <div class="fix-row">
+    <div class="fix-tag">WC — Water Closet (ADA)</div>
+    <div class="fix-mfr">American Standard Cadet #2467.016 &bull; White &bull; 1.6 GPF Pressure Assisted &bull; Floor Mounted ADA</div>
+    <div class="fix-ri">Rough-In: 4"W &bull; 2"V &bull; ½"CW</div>
+    <div class="fix-note">Trip lever on wide side. Bemis #1055 seat. Replace existing — reconnect to existing 4"W and 2"V.</div>
+  </div>
+
+  <div class="fix-row">
+    <div class="fix-tag">LAV — Lavatory (ADA)</div>
+    <div class="fix-mfr">American Standard Lucerne #0355.012 &bull; White &bull; Wall Hung ADA. Faucet: Seva #1480.110 single lever 1.5 GPM</div>
+    <div class="fix-ri">Rough-In: 2"W &bull; 1½"V &bull; ½"CW &bull; ½"HW</div>
+    <div class="fix-note">Truebro Lavguard #102 pipe wrap required. Offset grid drain. Replace existing — reconnect to existing 2"W and 1½"V.</div>
+  </div>
+
+  <div class="fix-row">
+    <div class="fix-tag">FD — Floor Drain</div>
+    <div class="fix-mfr">Zurn FD-2340 &bull; Med Duty PVC Body &bull; Adjustable Cast Iron 6" Round Top &bull; Trap Primer Connection</div>
+    <div class="fix-ri">Rough-In: 3"W &bull; 2"V &bull; ½"CW (trap primer)</div>
+    <div class="fix-note">PPP PR-500 trap primer valve recessed in wall min 12" AFF with access panel. Flush with finished floor.</div>
+  </div>
+
+  <div class="section-sub">BOH / Kitchen</div>
+
+  <div class="fix-row">
+    <div class="fix-tag">S3 — 3-Compartment Sink</div>
+    <div class="fix-mfr">BK Resources BKS-3-18-12-18T &bull; Stainless &bull; NSF Listed. Pre-Rinse: BKF-SMPR-WB-AF12-G</div>
+    <div class="fix-ri">Rough-In: 3"W (direct to GI) &bull; ¾"CW &bull; ¾"HW</div>
+    <div class="fix-note">Route 3" waste directly above ground to grease interceptor — no floor penetration for this line.</div>
+  </div>
+
+  <div class="fix-row">
+    <div class="fix-tag">HS — Hand Sinks &times; 2</div>
+    <div class="fix-mfr">BK Resources BKHS-W-SS-SS-P-G &bull; Wall Mount Stainless. Faucet: BKF-W-3G-G included. Drain 1-7/8"</div>
+    <div class="fix-ri">Rough-In: 2"W &bull; 1½"V &bull; ½"CW &bull; ½"HW each</div>
+    <div class="fix-note">Watts LFUSG-B mixing valve required at each — ASSE 1070, max 110°F. 1.0 GPM aerator max.</div>
+  </div>
+
+  <div class="fix-row">
+    <div class="fix-tag">MS — Mop Sink (Existing)</div>
+    <div class="fix-mfr">Existing to remain. New faucet: BK Resources BKSF-WB1</div>
+    <div class="fix-ri">Existing R/I: 3"W &bull; ¾"CW &bull; ¾"HW</div>
+    <div class="fix-note">Refurbish existing as required. Backflow prevention device required at faucet per EQ100.</div>
+  </div>
+
+  <div class="fix-row">
+    <div class="fix-tag">GI — Grease Interceptor</div>
+    <div class="fix-mfr">BK Resources BK-GT-50 &bull; 50 lb / 25 GPM &bull; Above Ground Hydromechanical</div>
+    <div class="fix-ri">Rough-In: 3"W inlet (from S3) &bull; 3"W outlet (to 4" sanitary) &bull; (2) 2"V</div>
+    <div class="fix-note">GC furnish and install per EQ100. Confirm in writing — NOT owner furnished. Install 2 vents.</div>
+  </div>
+
+  <div class="section-sub">Mechanical</div>
+
+  <div class="fix-row">
+    <div class="fix-tag">WH — Water Heater</div>
+    <div class="fix-mfr">AO Smith DRE-52 &bull; 50 Gal Electric &bull; 208V/3PH &bull; 9KW &bull; 47 GPH Recovery @ 80°F rise</div>
+    <div class="fix-ri">Rough-In: 1"CW in &bull; 1"HW out &bull; T&amp;P indirect to MS</div>
+    <div class="fix-note">GC furnish and install. Set 120°F. Seismic bracing required. Expansion tank required. EC provides 208V/3PH circuit.</div>
+  </div>
+
+  <div class="fix-row">
+    <div class="fix-tag">RP — Recirc Pump</div>
+    <div class="fix-mfr">Bell &amp; Gossett NBF-9U/LW &bull; 5 GPM @ 11 FT Head &bull; 120V/1PH. With AQS-384 aquastat.</div>
+    <div class="fix-ri">Rough-In: ½" connection on HW return loop</div>
+    <div class="fix-note">Flexible plug-in cord. Install per manufacturer specs on HW return line.</div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 4. MATERIAL TAKEOFF -->
+
+  <div class="card">
+    <div class="card-header">📐 MATERIAL TAKEOFF — PIPE BY TYPE</div>
+    <div class="card-body">
+      <p style="font-size:12px;color:#888;margin-bottom:14px;font-style:italic;">Based on 900 SF space, fixture locations per P100/P101, and field-typical runs. Add 10–15% for fittings and waste. Field verify before ordering.</p>
+
+```
+  <!-- TYPE L COPPER -->
+  <div class="mat-block">
+    <div class="mat-header">TYPE L COPPER — Domestic Water (Above Slab)</div>
+    <div class="mat-row"><span class="mat-size">1" CW</span><span class="mat-desc">Service entry → WH → main distribution header</span><span class="mat-lf">25 LF</span></div>
+    <div class="mat-row"><span class="mat-size">¾" CW</span><span class="mat-desc">Header → 3-comp sink (S3)</span><span class="mat-lf">20 LF</span></div>
+    <div class="mat-row"><span class="mat-size">¾" CW</span><span class="mat-desc">Header → mop sink (MS, existing)</span><span class="mat-lf">15 LF</span></div>
+    <div class="mat-row"><span class="mat-size">½" CW</span><span class="mat-desc">Branch → hand sinks HS-1 &amp; HS-2 (2 drops)</span><span class="mat-lf">30 LF</span></div>
+    <div class="mat-row"><span class="mat-size">½" CW</span><span class="mat-desc">Branch → restroom WC &amp; LAV</span><span class="mat-lf">20 LF</span></div>
+    <div class="mat-row"><span class="mat-size">½" CW</span><span class="mat-desc">Trap primer supply to floor drain FD</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-total-row"><span class="mat-total-label">TOTAL TYPE L CW (above slab)</span><span class="mat-total-lf">120 LF</span></div>
+    <div class="mat-note">Add approx. 15 LF for HW return loop (recirc) at ¾" from WH outlet back to pump.</div>
+  </div>
+
+  <!-- HOT WATER -->
+  <div class="mat-block">
+    <div class="mat-header">TYPE L COPPER — Hot Water (Above Slab)</div>
+    <div class="mat-row"><span class="mat-size">1" HW</span><span class="mat-desc">WH outlet → recirc loop main header</span><span class="mat-lf">20 LF</span></div>
+    <div class="mat-row"><span class="mat-size">¾" HW</span><span class="mat-desc">Header → 3-comp sink (S3)</span><span class="mat-lf">20 LF</span></div>
+    <div class="mat-row"><span class="mat-size">¾" HW</span><span class="mat-desc">Header → mop sink (MS)</span><span class="mat-lf">15 LF</span></div>
+    <div class="mat-row"><span class="mat-size">½" HW</span><span class="mat-desc">Branch → hand sinks HS-1 &amp; HS-2 (2 drops)</span><span class="mat-lf">30 LF</span></div>
+    <div class="mat-row"><span class="mat-size">½" HW</span><span class="mat-desc">Branch → restroom LAV</span><span class="mat-lf">20 LF</span></div>
+    <div class="mat-total-row"><span class="mat-total-label">TOTAL TYPE L HW (above slab)</span><span class="mat-total-lf">105 LF</span></div>
+  </div>
+
+  <!-- TYPE K UNDERGROUND -->
+  <div class="mat-block">
+    <div class="mat-header">TYPE K COPPER SOFT — Underground / Below Slab</div>
+    <div class="mat-row"><span class="mat-size">1" CW</span><span class="mat-desc">Underground service entry to stub-up at WH location</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-row"><span class="mat-size">½" CW</span><span class="mat-desc">Below slab — trap primer run to FD receptor</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-total-row"><span class="mat-total-label">TOTAL TYPE K (below slab)</span><span class="mat-total-lf">20 LF</span></div>
+    <div class="mat-note">Verify existing service stub location before trenching. All underground copper to be wrapped or sleeved per local code.</div>
+  </div>
+
+  <!-- PVC SCH 40 ABOVE SLAB -->
+  <div class="mat-block">
+    <div class="mat-header">PVC SCH 40 — DWV Above Slab</div>
+    <div class="mat-row"><span class="mat-size">4" W</span><span class="mat-desc">WC waste reconnect to existing 4" stub</span><span class="mat-lf">8 LF</span></div>
+    <div class="mat-row"><span class="mat-size">3" W</span><span class="mat-desc">S3 direct above-ground waste run to GI inlet</span><span class="mat-lf">15 LF</span></div>
+    <div class="mat-row"><span class="mat-size">3" W</span><span class="mat-desc">GI outlet → connect to existing 4" sanitary</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-row"><span class="mat-size">3" W</span><span class="mat-desc">Mop sink (MS) waste above slab run</span><span class="mat-lf">12 LF</span></div>
+    <div class="mat-row"><span class="mat-size">2" W</span><span class="mat-desc">Hand sinks HS-1 &amp; HS-2 waste above slab</span><span class="mat-lf">25 LF</span></div>
+    <div class="mat-row"><span class="mat-size">2" W</span><span class="mat-desc">LAV waste reconnect to existing 2" stub</span><span class="mat-lf">6 LF</span></div>
+    <div class="mat-row"><span class="mat-size">2" V</span><span class="mat-desc">GI vent lines × 2 up and connect to existing vent</span><span class="mat-lf">30 LF</span></div>
+    <div class="mat-row"><span class="mat-size">2" V</span><span class="mat-desc">HS-1 &amp; HS-2 vent branches to main vent stack</span><span class="mat-lf">20 LF</span></div>
+    <div class="mat-row"><span class="mat-size">1½" V</span><span class="mat-desc">LAV vent reconnect to existing restroom vent line</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-row"><span class="mat-size">2" V</span><span class="mat-desc">FD vent branch to main stack</span><span class="mat-lf">12 LF</span></div>
+    <div class="mat-total-row"><span class="mat-total-label">TOTAL PVC SCH 40 (above slab)</span><span class="mat-total-lf">148 LF</span></div>
+  </div>
+
+  <!-- CAST IRON AT / BELOW SLAB -->
+  <div class="mat-block">
+    <div class="mat-header">CAST IRON SCH SV — At Slab / Below Grade</div>
+    <div class="mat-row"><span class="mat-size">4" W</span><span class="mat-desc">Existing 4" sanitary connection &amp; short horizontal run at slab</span><span class="mat-lf">15 LF</span></div>
+    <div class="mat-row"><span class="mat-size">4" W</span><span class="mat-desc">WC below-slab waste to existing 4" sanitary (if relocation needed)</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-row"><span class="mat-size">3" W</span><span class="mat-desc">FD below-slab waste run to sanitary lateral</span><span class="mat-lf">15 LF</span></div>
+    <div class="mat-row"><span class="mat-size">3" W</span><span class="mat-desc">MS below-slab waste to existing sanitary (if below slab run required)</span><span class="mat-lf">10 LF</span></div>
+    <div class="mat-total-row"><span class="mat-total-label">TOTAL CAST IRON (at/below slab)</span><span class="mat-total-lf">50 LF</span></div>
+    <div class="mat-note">Cast iron quantities assume existing WC and LAV stubs are in compliant locations. If re-rough required add 10–20 LF at 4". Verify invert of existing 4" sanitary before ordering.</div>
+  </div>
+
+  <!-- GAS -->
+  <div class="gas-excluded">⛔ GAS PIPING — EXCLUDED. No gas service to this project. All equipment is electric. Confirmed on G100 &amp; P101.</div>
+
+</div>
+```
+
+  </div>
+
+  <!-- 5. MY SCOPE -->
+
+  <div class="card">
+    <div class="card-header">📋 MY SCOPE</div>
+    <div class="card-body">
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Tie into existing 1" CW metered service — install Zurn 375XL RP backflow preventer at point of connection</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Furnish &amp; install AO Smith DRE-52 50-gal electric WH — seismic bracing, expansion tank, B&amp;G recirc pump with aquastat</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Run all CW/HW distribution — 1" main, ¾" BOH branches, ½" drops to all fixtures — Type L copper above slab insulated per CPC</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Replace existing WC and LAV with new ADA fixtures — reconnect to existing 4"W and 2"W rough-in locations</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Furnish &amp; install S3 3-comp sink with pre-rinse, (2) HS hand sinks with mixing valves, new faucet only at existing mop sink</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Furnish &amp; install BK-GT-50 above-ground grease interceptor — 3" direct waste from S3, (2) 2" vents, 3" outlet to existing 4" sanitary</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Install complete DWV system — PVC Sch 40 above slab, cast iron at/below slab. Verify existing 4" sanitary invert before committing.</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Install Zurn FD-2340 floor drain with PPP PR-500 trap primer valve — recessed in wall with access panel, min 12" AFF</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Connect new vent lines to existing restroom vent. Route T&amp;P from WH indirectly to existing mop sink with air gap.</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Insulate all HW and CW — ½" Armaflex on ½"–1¼" pipe, 1" on first 8 LF from WH tank, per 2025 CPC</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Water pressure test 100 PSI / 8 hrs. Chlorinate system. DWV water test flood to rim / 8 hrs. All results documented for closeout.</span></div>
+      <div class="scope-item"><span class="scope-icon">🔩</span><span>Rough, top-out, and final inspections with City of Anaheim Building &amp; Safety</span></div>
+    </div>
+  </div>
+
+  <!-- 6. RED FLAGS -->
+
+  <div class="card">
+    <div class="card-header">🚩 RED FLAGS</div>
+    <div class="card-body">
+      <div class="red-flag">
+        <strong>Existing 4" Sanitary — Invert &amp; Condition Unknown</strong>
+        Drawings call for connecting to existing 4" main. Verify invert elevation, size, and condition before committing to a hard number. Camera inspection recommended. If re-rough required add 10–20 LF cast iron and slab cut allowance.
+      </div>
+      <div class="red-flag">
+        <strong>WC &amp; LAV — Replace Not Demo</strong>
+        Existing WC and LAV are replaced with new fixtures reconnecting to existing rough-in. Confirm existing stub locations are ADA compliant before ordering fixtures. WC centerline must land 17"–18" from side wall or you're cutting slab.
+      </div>
+      <div class="red-flag">
+        <strong>GI Furnish Responsibility</strong>
+        BK-GT-50 is listed as GC furnish on EQ100. Confirm with GC in writing before bid — this is NOT owner furnished. Include in your number unless GC explicitly splits it out.
+      </div>
+      <div class="red-flag">
+        <strong>Trap Primer — Coordinate Before Framing</strong>
+        Trap primer valve must be recessed in wall min 12" AFF with access panel. Nail down the wall location with GC before drywall goes up. Any change after close-in is a costly cut.
+      </div>
+      <div class="red-flag">
+        <strong>Water Heater — 208V/3PH Electrical</strong>
+        AO Smith DRE-52 requires 208V/3PH by EC. Confirm dedicated circuit is in EC scope and coordinate rough-in stub location before setting the unit. Don't set until power is confirmed.
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. VERDICT -->
+
+  <div class="verdict-card">
+    <div class="verdict-label">BID VERDICT</div>
+    <div class="verdict-title">BID WITH QUALIFICATIONS</div>
+    <div class="verdict-body">Straightforward 900 SF cookie shop TI — no gas, manageable fixture count, ~393 LF total pipe across all materials. Main risks are existing 4" sanitary invert, ADA WC stub location, and GI furnish responsibility. Qualify slab conditions and confirm GI scope split in writing before submitting your number.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-logo">
+    <img src="data:image/jpeg;base64,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" alt="ScopeReady" style="height:32px;width:auto;border-radius:3px;opacity:0.7;">
+  </div>
+  <strong>KNOW YOUR SCOPE. WIN THE BID.</strong><br>
+  <span style="font-size:10px;">Tier 2 Full Analysis &bull; AI-assisted &bull; Field verify all quantities &bull; 01/13/26 plan set &bull; P100, P101, P200, P300, EQ100</span>
+</div>
+
+<button onclick="window.print()" class="fab">📄 SAVE AS PDF</button>
+
+</body>
+</html>
